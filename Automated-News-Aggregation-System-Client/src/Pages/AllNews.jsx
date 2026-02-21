@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import NewsCard from './NewsCard';
+import NewsCard from '../Component/NewsCard';
 
 const AllNews = () => {
 

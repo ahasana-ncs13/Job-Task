@@ -1,5 +1,6 @@
 // NewsCard.jsx
 import React from "react";
+import { Link } from "react-router";
 
 const NewsCard = ({ singleNews }) => {
   const article = singleNews;
@@ -30,14 +31,7 @@ const NewsCard = ({ singleNews }) => {
 
       {/* Read More Button */}
       <div className="mt-4 text-right">
-        <a
-          href={article.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-sm btn-primary"
-        >
-          Read More
-        </a>
+        <Link className=" btn btn-primary" to={`/newsdetails/${article.article_id}`}>Read More</Link>
       </div>
     </div>
   );

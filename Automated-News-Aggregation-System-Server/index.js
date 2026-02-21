@@ -37,6 +37,18 @@ res.send(allArticles);
 
 //   res.send(allnews.results[0])
 })
+// Get single news by article_id
+    app.get("/allnews/:id", async (req, res) => {
+      const { id } = req.params;
+      const cursor = newsCollection.find({});
+      const allnews = await cursor.toArray();
+      const allArticles = allnews.flatMap(doc => doc.results);
+
+      const article = allArticles.find(a => a.article_id === id);
+      if (!article) return res.status(404).send({ message: "Article not found" });
+
+      res.send(article);
+    });
  
 
     // Send a ping to confirm a successful connection
